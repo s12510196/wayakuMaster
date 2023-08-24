@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>結果</title>
+</head>
+<body>
+    <div class="container">
+        <h1>結果</h1>
+        <p>正解数: {{ correct_count }} / {{ num_questions }}</p>
+        {% if incorrect_questions %}
+        <p>間違えた問題:</p>
+        <ul>
+            {% for question in incorrect_questions %}
+            <li>{{ question.english }} - 正解: {{ question.translation }} - 入力した解答: {{ user_answers[loop.index0] }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
+

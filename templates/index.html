@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>英文和訳チェックアプリ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>英文和訳チェックアプリ</h1>
+        <form method="POST">
+            {% for index, question in selected_questions.iterrows() %}
+            <div class="question">
+                <p>{{ question.english }}</p>
+                <input type="text" autocomplete="off" name="user_answer_{{ loop.index0 }}" required>
+            </div>
+            {% endfor %}
+            <button type="submit">入力完了</button>
+        </form>
+    </div>
+</body>
+</html>
